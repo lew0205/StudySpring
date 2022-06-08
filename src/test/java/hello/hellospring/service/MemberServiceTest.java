@@ -1,4 +1,4 @@
-package service;
+package hello.hellospring.service;
 
 import hello.hellospring.domain.Member;
 import hello.hellospring.repository.MemoryMemberRepository;
@@ -53,23 +53,5 @@ class MemberServiceTest {
         IllegalStateException e = assertThrows(IllegalStateException.class, () -> memberService.join(member2));
 
         assertThat(e.getMessage()).isEqualTo("이미 존재하는 회원입니다.");
-/*
-        try {
-            memberService.join(member2);
-            fail();
-        }catch (IllegalStateException e){
-            assertThat(e.getMessage()).isEqualTo("이미 존재하는 회원입니다.");
-        }
-*/
-
-        //then
-    }
-
-    @Test
-    void findMembers() {
-    }
-
-    @Test
-    void findOne() {
     }
 }
