@@ -20,16 +20,12 @@ public class MemberService {
         this.memberRepository = memberRepository;
     }
 
-    /**
-     * 회원 가입
-     */
     public Long join(Member member) {
-        //같은 이름이 있는 중복 회원X
-        validateDuplicateMember(member);//중복 회원  검증
+    validateDuplicateMember(member);//중복 회원 검증
+    memberRepository.save(member);
+    return member.getId();
+}
 
-        memberRepository.save(member);
-        return member.getId();
-    }
 
     private void validateDuplicateMember(Member member) {
         memberRepository.findByName(member.getName()).ifPresent(m -> {
